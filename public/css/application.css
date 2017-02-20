@@ -1,0 +1,40 @@
+.main{
+    text-align: center;
+}
+
+.table-wrapper, .form-wrapper{
+    position: relative;
+    top:20px;
+    background-color: antiquewhite;
+    width: 100%;
+    height: 60%;
+}
+
+.form-wrapper {
+    text-align: end;
+    width: 40%;
+}
+
+.form-back {
+    text-align: -webkit-center;
+}
+
+.element-button {
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 5px
+}
+
+.element-button-up {
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 5px
+}
+
+.table  th, td {
+    border: 1px solid black;
+}
+
+tr {
+    border: thin;
+}

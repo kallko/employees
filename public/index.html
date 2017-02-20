@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Test Task</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="./js/controllers/main-controller.js"></script>
+    <link rel="stylesheet" href="./css/application.css"/>
+
+
+</head>
+<body>
+        <div ng-app="employee" ng-controller = "MainController" class="main">
+            <div class='table-wrapper' ng-show = "showMode == 0">
+                <button class = "element-button-up"    ng-click="addNewEmployee()" style="float: left"> Add new employee </button>
+                <table class="table" style="width:100%">
+                    <tr>
+                        <th>NAME</th>
+                        <th>JOB Title</th>
+                        <th>Employment Date</th>
+                        <th>Rate</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr ng-repeat = "man in employees">
+                        <td ng-click = "editFunction(man.id)">{{man.lName}} {{man.fName}}</td>
+                        <td>{{man.job.name}}</td>
+                        <td>{{man.stringDate.substring(0,15)}}</td>
+                        <td>{{man.rate}}</td>
+                        <td ng-click = "deleteFunction(man.id, man.lName, man.fName)"> Delete </td>
+
+                    </tr>
+
+
+                </table>
+            </div>
+            <div class="form-back">
+                <div class="form-wrapper" ng-show = "showMode == 1">
+                    <div style="padding: 10px">
+                        <span style="float: left"> First Name </span>
+                        <span > <input type="text" ng-model = "newMan.fName" placeholder="Jhon"/> </span>
+                    </div>
+                    <div style="padding: 10px">
+                        <span style="float: left"> Last Name </span>
+                        <span > <input type="text" ng-model = "newMan.lName" placeholder="Smith"/> </span>
+                    </div>
+                    <div style="padding: 10px">
+                        <span style="float: left"> Rate </span>
+                        <span > <input type="number" ng-model = "newMan.rate"/> </span>
+                    </div>
+                    <div style="padding: 10px">
+                        <span style="float: left"> Employment Date </span>
+                        <span > <input type="date" ng-model = "newMan.date"/> </span>
+                    </div>
+                    <div style="padding: 10px">
+                        <span style="float: left"> Job Title </span>
+                        <span > <select ng-options="job.name for job in jobs" ng-model="newMan.job"> </select> </span>
+                    </div>
+                    <br>
+                    <div >
+                        <button class = "element-button" ng-click = "backFunction()"> Back </button>
+                        <button class = "element-button" ng-click = "saveFunction()"> Save </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+</body>
+<style>
+
+</style>
+</html>
